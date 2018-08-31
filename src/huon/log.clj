@@ -3,7 +3,7 @@
 (defmacro ^:private log [level args]
   `(log* ~(str *ns*)
          ~level
-         #(str (clojure.string/upper-case (name ~level))  " "
+         #(str "[" (clojure.string/upper-case (name ~level))  "] "
                (clojure.string/join " " ~(mapv (fn [x] `(str ~x)) args)))))
 
 (defmacro debug
