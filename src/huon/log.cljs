@@ -15,6 +15,8 @@
   "Start capturing console output. Apps that want to display log output should
   call this function, but libraries that depend on Huon for logging should not."
   []
+  ;; required to make logging appear on Node.js for optimization other than none:
+  #_(.setConsole goog.debug.Console js/console)
   (set! (.-showLoggerName (.getFormatter console)) false)
   (.setCapturing console true))
 
